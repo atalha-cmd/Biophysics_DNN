@@ -14,12 +14,12 @@ This repository includes the following key functionalities:
 
 Before running the scripts in this repository, please ensure the following requirements are met:
 
-1.  A **Python** environment.
+1.  A **Python** environment. (Specify the version)
 2.  A set of required packages installed, including:
 
-    * Python packages: `gudhi`, `matplotlib`, `numpy`, `pandas`, etc.
+    * Python packages: `gudhi`, `matplotlib`, `numpy`, `pandas`, etc. (Specify the ML package version)
     * A Fortran compiler, such as `gfortran`, for running certain numerical routines.
-3.  (Recommended) Set up a Python virtual environment to isolate dependencies.
+3.  (Recommended) Set up a Python virtual environment to isolate dependencies (Give version of involved packages).
 
 ### Scripts Overview
 
@@ -27,7 +27,7 @@ This repository includes several scripts designed for generating features and tr
 
 ### 1. **Electrostatic Features Generation (`get_electrostatic_features.py`)**
 
-This script calculates electrostatic features for biomolecules, which are essential for understanding their interaction with the environment.
+This script calculates electrostatic features for biomolecules by calling treecode implemented in Fortran programing language.
 
 **Usage:**
 ```bash
@@ -35,7 +35,7 @@ python get_electrostatic_features.py 0 1  # Generate electrostatic features (Arg
 ```
 ### 2. **Topological Features Generation (`run_all.py`)** 
 
-This script computes topological features, which describe the shape and connectivity of the biomolecules.
+This script computes topological features, which describes the shape and connectivity of the biomolecules.
 
 **Usage:**
 ```bash
