@@ -72,19 +72,20 @@ This script computes topological features, which describes the shape and connect
 ```bash
 python run_all.py  # Generate topological features
 ```
-### Step: 3. **CNN Model Training** 
+### Step: 3. ** Train CNN Models ** 
 
 This script runs multiple CNN models using both electrostatic and topological features. It includes cross-validation for performance evaluation.
 
-**Train CNN using both electrostatic and topological features:**
+**Combined Features (Electrostatic + Topological):**
 ```bash
 python CNNbothCV.py 0 1 5  # Run CNN with both features and cross-validation
 ```
-**Train CNN using only electrostatic features:**
+``` 0 1 5 ``` : Parameters for interpolation order, tree depth, and number of cross-validation folds
+**Electrostatic Features Only:**
 ```bash
 python CNNelectro.py 0 1 5  # Run CNN with only electrostatic features and cross-validation
 ```
-**Train CNN using only topological features:**
+**Topological Features Only:**
 ```bash
 python CNNtopologicalCV.py 5  # Run CNN with only topological features and cross-validation
 ```
