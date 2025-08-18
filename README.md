@@ -60,7 +60,6 @@ Below are the key steps for generating features and training models:
 
 This script computes electrostatic features for biomolecules using a treecode-based Fortran solver.
 
-**Usage:**
 ```bash
 python get_electrostatic_features.py 0 1  # Generate electrostatic features (Arguments: p=0, L=1)
 ```
@@ -73,7 +72,6 @@ Arguments:
 
 This script computes topological features, which describes the shape and connectivity of the biomolecules.
 
-**Usage:**
 ```bash
 python run_all.py  # Generate topological features
 ```
