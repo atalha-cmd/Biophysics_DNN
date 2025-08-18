@@ -61,7 +61,7 @@ Below are the key steps for generating features and training models:
 This script computes electrostatic features for biomolecules using a treecode-based Fortran solver.
 
 ```bash
-python get_electrostatic_features.py 0 1  # Generate electrostatic features (Arguments: p=0, L=1)
+python get_electrostatic_features.py 0 1 
 ```
 Arguments:
 
