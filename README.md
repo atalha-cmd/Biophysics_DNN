@@ -47,7 +47,7 @@ Before using this repository, make sure your system is set up with the following
   .\env\Scripts\activate   # On Windows
 
 
-### Scripts Overview
+### 📂 Repository Structure
 
 This repository includes several scripts designed for generating features and training machine learning models for biophysics research. Below is a summary of each script's purpose and how to use them.
 
