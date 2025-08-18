@@ -69,7 +69,7 @@ Arguments:
 
 `L` = tree depth (e.g., 1)
 
-### Step: 2. Topological Features Generation (`run_all.py`) 
+### Step: 2. Generate Topological Features 
 
 This script computes topological features, which describes the shape and connectivity of the biomolecules.
 
