@@ -1,30 +1,8 @@
 
 # Biophysics Machine Learning
 
-Welcome to the **Biophysics Machine Learning** repository! This repository contains scripts and tools for generating electrostatic and topological features, as well as training Convolutional Neural Networks (CNNs) to analyze biophysical properties using these features.
-
-## Overview
-
-This repository includes the following key functionalities:
-- **Electrostatic Feature Generation**: A script to compute electrostatic features for biomolecules.
-- **Topological Feature Generation**: A script to compute topological features.
-- **CNN Model Training**: Several scripts to train CNN models using electrostatic and topological features.
-
-## Prerequisites
-
-Before running the scripts in this repository, please ensure the following requirements are met:
-
-1.  A **Python** environment. (Specify the version)
-2.  A set of required packages installed, including:
-
-    * Python packages: `gudhi`, `matplotlib`, `numpy`, `pandas`, etc. (Specify the ML package version)
-    * A Fortran compiler, such as `gfortran`, for running certain numerical routines.
-3.  (Recommended) Set up a Python virtual environment to isolate dependencies (Give version of involved packages).
-
-# Biophysics Machine Learning
-
 Welcome to the **Biophysics Machine Learning** repository!  
-This project provides a complete pipeline for **feature generation** and **machine learning model training** aimed at understanding and predicting biophysical properties of biomolecules. It combines **electrostatic** and **topological** descriptors with **Convolutional Neural Networks (CNNs)** to build predictive models for applications in protein biophysics, computational chemistry, and drug discovery.
+This project provides a complete pipeline for **feature generation** and **machine learning model training** aimed at understanding and predicting biophysical properties of biomolecules. By integrating **electrostatic** and **topological** features with **Convolutional Neural Networks (CNNs)**, the framework enables accurate prediction of biomolecular electrostatic energies.
 
 ---
 
@@ -33,7 +11,7 @@ This project provides a complete pipeline for **feature generation** and **machi
 The repository is organized into three major components:
 
 1. **Electrostatic Feature Generation**  
-   Tools to compute electrostatic descriptors using a treecode-accelerated solver written in Fortran. These features capture electrostatic interactions that are crucial to biomolecular stability and function.
+   Tools to compute electrostatic features using a treecode-accelerated solver written in Fortran. These features capture electrostatic interactions that are crucial to protein properties.
 
 2. **Topological Feature Generation**  
    Scripts to extract topological features (e.g., persistence diagrams, Betti numbers) that describe the **shape and connectivity** of biomolecular structures using topological data analysis (TDA).
@@ -73,16 +51,6 @@ Before using this repository, make sure your system is set up with the following
 
 This repository includes several scripts designed for generating features and training machine learning models for biophysics research. Below is a summary of each script's purpose and how to use them.
 
-Biophysics-Machine-Learning/
-│
-├── get_electrostatic_features.py   # Electrostatic feature generation (Fortran backend)
-├── run_all.py                      # Topological feature generation
-├── CNNbothCV.py                    # CNN training with combined features
-├── CNNelectro.py                   # CNN training with electrostatic features
-├── CNNtopologicalCV.py             # CNN training with topological features
-├── data/                           # (Optional) Store input biomolecular structures/features
-├── results/                        # Model outputs, metrics, plots
-└── README.md                       # Project documentation
 
 ## 🧑‍💻 Usage
 
@@ -90,10 +58,7 @@ Below are the key steps for generating features and training models:
 
 ### Step: 1. ** Generate Electrostatic Features **
 
-Script: ```bash get_electrostatic_features.py ```
-This script computes electrostatic descriptors for biomolecules using a treecode-based Fortran solver.
-
-This script calculates electrostatic features for biomolecules by calling treecode implemented in Fortran programing language.
+This script computes electrostatic features for biomolecules using a treecode-based Fortran solver.
 
 **Usage:**
 ```bash
