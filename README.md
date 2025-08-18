@@ -108,7 +108,7 @@ python CNNtopologicalCV.py 5  # Run CNN with only topological features and cross
 
 If you use this repository in your work, please consider citing:
 
-- Topological feature extraction: GUDHI Library
+- Topological feature extraction: GUDHI Library (https://gudhi.inria.fr/python/latest/)
 
 - Electrostatics solver (Treecode implementation): Related literature in computational biophysics and electrostatics
 
