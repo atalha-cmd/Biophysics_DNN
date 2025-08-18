@@ -2,7 +2,7 @@
 # Biophysics Machine Learning
 
 Welcome to the **Biophysics Machine Learning** repository!  
-This project provides a complete pipeline for **feature generation** and **machine learning model training** aimed at understanding and predicting biophysical properties of biomolecules. By integrating **electrostatic** and **topological** features with **Convolutional Neural Networks (CNNs)**, the framework enables accurate prediction of biomolecular electrostatic energies.
+This project provides a complete pipeline for **feature generation** and **machine learning model training** aimed at understanding and predicting biophysical properties of proteins. By integrating **electrostatic** and **topological** features with **Convolutional Neural Networks (CNNs)**, the framework enables accurate prediction of electrostatic energies.
 
 ---
 
