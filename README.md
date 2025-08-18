@@ -68,6 +68,7 @@ Arguments:
 `p` = interpolation order (e.g., 0)
 
 `L` = tree depth (e.g., 1)
+
 ### Step: 2. Topological Features Generation (`run_all.py`) 
 
 This script computes topological features, which describes the shape and connectivity of the biomolecules.
@@ -84,6 +85,7 @@ This script runs multiple CNN models using both electrostatic and topological fe
 python CNNbothCV.py 0 1 5  # Run CNN with both features and cross-validation
 ```
 ``` 0 1 5 ``` : Parameters for interpolation order, tree depth, and number of cross-validation folds
+
 **Electrostatic Features Only:**
 ```bash
 python CNNelectro.py 0 1 5  # Run CNN with only electrostatic features and cross-validation
