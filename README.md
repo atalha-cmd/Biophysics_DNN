@@ -94,4 +94,22 @@ python CNNelectro.py 0 1 5  # Run CNN with only electrostatic features and cross
 ```bash
 python CNNtopologicalCV.py 5  # Run CNN with only topological features and cross-validation
 ```
+## 📊 Output
 
+- Feature files: Saved as CSV or NumPy arrays for reproducibility.
+
+- Model checkpoints: Saved CNN models for reuse and evaluation.
+
+- Performance metrics: Includes MSE, R², Pearson correlation, and cross-validation scores.
+
+- Plots: Training/validation loss curves and scatter plots of predictions vs. true values.
+
+## 📖 References
+
+If you use this repository in your work, please consider citing:
+
+- Topological feature extraction: GUDHI Library
+
+- Electrostatics solver (Treecode implementation): Related literature in computational biophysics and electrostatics
+
+- CNN models: Built using TensorFlow
