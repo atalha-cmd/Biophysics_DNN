@@ -73,7 +73,25 @@ Before using this repository, make sure your system is set up with the following
 
 This repository includes several scripts designed for generating features and training machine learning models for biophysics research. Below is a summary of each script's purpose and how to use them.
 
-### Step: 1. **Electrostatic Features Generation (`get_electrostatic_features.py`)**
+Biophysics-Machine-Learning/
+│
+├── get_electrostatic_features.py   # Electrostatic feature generation (Fortran backend)
+├── run_all.py                      # Topological feature generation
+├── CNNbothCV.py                    # CNN training with combined features
+├── CNNelectro.py                   # CNN training with electrostatic features
+├── CNNtopologicalCV.py             # CNN training with topological features
+├── data/                           # (Optional) Store input biomolecular structures/features
+├── results/                        # Model outputs, metrics, plots
+└── README.md                       # Project documentation
+
+## 🧑‍💻 Usage
+
+Below are the key steps for generating features and training models:
+
+### Step: 1. ** Generate Electrostatic Features **
+
+Script: ```bash get_electrostatic_features.py ```
+This script computes electrostatic descriptors for biomolecules using a treecode-based Fortran solver.
 
 This script calculates electrostatic features for biomolecules by calling treecode implemented in Fortran programing language.
 
