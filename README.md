@@ -64,6 +64,11 @@ This script computes electrostatic features for biomolecules using a treecode-ba
 ```bash
 python get_electrostatic_features.py 0 1  # Generate electrostatic features (Arguments: p=0, L=1)
 ```
+Arguments:
+
+`p` = interpolation order (e.g., 0)
+
+`L` = tree depth (e.g., 1)
 ### Step: 2. **Topological Features Generation (`run_all.py`)** 
 
 This script computes topological features, which describes the shape and connectivity of the biomolecules.
