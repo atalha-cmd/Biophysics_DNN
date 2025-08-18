@@ -21,6 +21,54 @@ Before running the scripts in this repository, please ensure the following requi
     * A Fortran compiler, such as `gfortran`, for running certain numerical routines.
 3.  (Recommended) Set up a Python virtual environment to isolate dependencies (Give version of involved packages).
 
+# Biophysics Machine Learning
+
+Welcome to the **Biophysics Machine Learning** repository!  
+This project provides a complete pipeline for **feature generation** and **machine learning model training** aimed at understanding and predicting biophysical properties of biomolecules. It combines **electrostatic** and **topological** descriptors with **Convolutional Neural Networks (CNNs)** to build predictive models for applications in protein biophysics, computational chemistry, and drug discovery.
+
+---
+
+## 🚀 Overview
+
+The repository is organized into three major components:
+
+1. **Electrostatic Feature Generation**  
+   Tools to compute electrostatic descriptors using a treecode-accelerated solver written in Fortran. These features capture electrostatic interactions that are crucial to biomolecular stability and function.
+
+2. **Topological Feature Generation**  
+   Scripts to extract topological features (e.g., persistence diagrams, Betti numbers) that describe the **shape and connectivity** of biomolecular structures using topological data analysis (TDA).
+
+3. **CNN Model Training**  
+   Deep learning scripts for training **Convolutional Neural Networks** on electrostatic, topological, or combined features. Includes cross-validation for robust model evaluation.
+
+---
+
+## ⚙️ Prerequisites
+
+Before using this repository, make sure your system is set up with the following:
+
+- **Python Environment**:  
+  Python **3.9+** (recommended)
+
+- **Required Python Packages** (with tested versions):  
+  - `numpy >= 1.23`  
+  - `pandas >= 1.5`  
+  - `matplotlib >= 3.6`  
+  - `scikit-learn >= 1.3`  
+  - `tensorflow >= 2.12` or `torch >= 2.0` (depending on your deep learning backend)  
+  - `gudhi >= 3.7` (for persistent homology and topological features)
+
+- **Fortran Compiler**:  
+  `gfortran` (tested with GCC 11+) is required to run the numerical routines for electrostatics.
+
+- **(Optional but Recommended)**:  
+  Create and activate a **virtual environment** to manage dependencies:
+  ```bash
+  python -m venv env
+  source env/bin/activate  # On Linux/Mac
+  .\env\Scripts\activate   # On Windows
+
+
 ### Scripts Overview
 
 This repository includes several scripts designed for generating features and training machine learning models for biophysics research. Below is a summary of each script's purpose and how to use them.
