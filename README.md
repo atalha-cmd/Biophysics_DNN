@@ -56,7 +56,7 @@ This repository includes several scripts designed for generating features and tr
 
 Below are the key steps for generating features and training models:
 
-### Step: 1. ** Generate Electrostatic Features **
+### Step: 1. Generate Electrostatic Features
 
 This script computes electrostatic features for biomolecules using a treecode-based Fortran solver.
 
@@ -68,14 +68,14 @@ Arguments:
 `p` = interpolation order (e.g., 0)
 
 `L` = tree depth (e.g., 1)
-### Step: 2. **Topological Features Generation (`run_all.py`)** 
+### Step: 2. Topological Features Generation (`run_all.py`) 
 
 This script computes topological features, which describes the shape and connectivity of the biomolecules.
 
 ```bash
 python run_all.py  # Generate topological features
 ```
-### Step: 3. ** Train CNN Models ** 
+### Step: 3. Train CNN Models  
 
 This script runs multiple CNN models using both electrostatic and topological features. It includes cross-validation for performance evaluation.
 
