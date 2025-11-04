@@ -36,39 +36,25 @@ conda install -c conda-forge gudhi
 conda install -c conda-forge gfortran
 ```
 
-### 📂 Repository Structure
-
-This repository includes several scripts designed for generating features and training machine learning models for biophysics research. Below is a summary of each script's purpose and how to use them.
-
-
 ## 🧑‍💻 Usage
-
-Below are the key steps for generating features and training models:
+Follow these steps to generate features and train the models:
 
 ### Step: 1. Generate Electrostatic Features
-
-This script computes electrostatic features for biomolecules using a treecode-based Fortran solver.
-
+Compute electrostatic features using the treecode-based Fortran solver:
 ```bash
 python get_electrostatic_features.py 0 1 
 ```
 Arguments:
-
 `p` = interpolation order (e.g., 0)
-
 `L` = tree depth (e.g., 1)
 
 ### Step: 2. Generate Topological Features 
-
-This script computes topological features, which describes the shape and connectivity of the biomolecules.
-
+Computes topological features, which describes the shape and connectivity of the biomolecules.
 ```bash
 python run_all.py  # Generate topological features
 ```
 ### Step: 3. Train CNN Models  
-
-This script runs multiple CNN models using both electrostatic and topological features. It includes cross-validation for performance evaluation.
-
+Train CNNs with electrostatic, topological, or combined features using cross-validation:
 **Combined Features (Electrostatic + Topological):**
 ```bash
 python CNNbothCV.py 0 1 5  # Run CNN with both features and cross-validation
@@ -84,21 +70,14 @@ python CNNelectro.py 0 1 5  # Run CNN with only electrostatic features and cross
 python CNNtopologicalCV.py 5  # Run CNN with only topological features and cross-validation
 ```
 ## 📊 Output
-
 - Feature files: Saved as CSV or NumPy arrays for reproducibility.
-
 - Model checkpoints: Saved CNN models for reuse and evaluation.
-
 - Performance metrics: Includes MSE, R², Pearson correlation, and cross-validation scores.
-
 - Plots: Training/validation loss curves and scatter plots of predictions vs. true values.
 
 ## 📖 References
 
 If you use this repository in your work, please consider citing:
-
 - Topological feature extraction: GUDHI Library (https://gudhi.inria.fr/python/latest/)
-
 - Electrostatics solver (Treecode implementation): Related literature in computational biophysics and electrostatics
-
 - CNN models: Built using TensorFlow
