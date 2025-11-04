@@ -26,24 +26,14 @@ The repository is organized into three major components:
 
 Before using this repository, please ensure that your system is properly configured with the following dependencies. It is recommended to create and activate a dedicated conda environment for reproducibility and isolation.
 - **Python Environment**:  
-  
-# Create and activate a new conda environment
 conda create -n biophysics_ml python=3.10
 conda activate biophysics_ml
-
-# Core scientific stack
 conda install numpy pandas scikit-learn matplotlib scipy
-
-# Deep learning (GPU support)
 conda install -c conda-forge tensorflow keras cudatoolkit
-
-# Topological data analysis tools
 conda install -c conda-forge gudhi
 
-
-
 - **Fortran Compiler**:  
-A Fortran compiler is required to run numerical routines related to electrostatics. Ensure that 'gfortran' (tested with GCC 11+) is installed and available in your system path.
+A Fortran compiler is required to run numerical routines related to electrostatics. Ensure that `gfortran` (tested with GCC 11+) is installed and available in your system path.
 
 
 
