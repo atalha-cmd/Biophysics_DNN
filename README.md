@@ -24,28 +24,27 @@ The repository is organized into three major components:
 
 ## ⚙️ Prerequisites
 
-Before using this repository, make sure your system is set up with the following:
-
+Before using this repository, please ensure that your system is properly configured with the following dependencies. It is recommended to create and activate a dedicated conda environment for reproducibility and isolation.
 - **Python Environment**:  
-  Python **3.9+** (recommended)
+  
+# Create and activate a new conda environment
+conda create -n biophysics_ml python=3.10
+conda activate biophysics_ml
 
-- **Required Python Packages** (with tested versions):  
-  - `numpy >= 1.23`  
-  - `pandas >= 1.5`  
-  - `matplotlib >= 3.6`  
-  - `scikit-learn >= 1.3`  
-  - `tensorflow >= 2.12` or `torch >= 2.0` (depending on your deep learning backend)  
-  - `gudhi >= 3.7` (for persistent homology and topological features)
+# Core scientific stack
+conda install numpy pandas scikit-learn matplotlib scipy
+
+# Deep learning (GPU support)
+conda install -c conda-forge tensorflow keras cudatoolkit
+
+# Topological data analysis tools
+conda install -c conda-forge gudhi
+
+
 
 - **Fortran Compiler**:  
-  `gfortran` (tested with GCC 11+) is required to run the numerical routines for electrostatics.
+A Fortran compiler is required to run numerical routines related to electrostatics. Ensure that 'gfortran' (tested with GCC 11+) is installed and available in your system path.
 
-- **(Optional but Recommended)**:  
-  Create and activate a **virtual environment** to manage dependencies:
-  ```bash
-  python -m venv env
-  source env/bin/activate  # On Linux/Mac
-  .\env\Scripts\activate   # On Windows
 
 
 ### 📂 Repository Structure
