@@ -1,8 +1,0 @@
-#!/bin/bash
-# user.txt - Script to generate topological features
-
-# Activate virtual environment 
-source /users/atalha/.venv/bin/activate
-
-# Run the topological feature generation script
-python run_all.py

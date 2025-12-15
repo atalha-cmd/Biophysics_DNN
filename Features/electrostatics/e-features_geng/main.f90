@@ -29,17 +29,6 @@ READ(ef_L_str, *) ef_L
 
 ! Obtain path
 pathname = trim(adjustl(file_path))
-
-! OPEN(101,file="usrdata.in")
-! READ(101,*,IOSTAT = MEOF) fhead, fname
-! READ(101,*,IOSTAT = MEOF) fhead, kappa 
-! READ(101,*,IOSTAT = MEOF) fhead, ef_p 
-! READ(101,*,IOSTAT = MEOF) fhead, ef_L
-! CLOSE(101)
-
-! !Obtain path
-! pathname='test_proteins/'
-
 lenpath = len(pathname)
 do while (pathname(lenpath:lenpath) .eq. ' ')
     lenpath = lenpath - 1
@@ -51,24 +40,8 @@ do while (file_path(lenfname:lenfname) .eq. ' ')
     lenfname = lenfname - 1
 enddo 
 
-! Find how many particles from the pqr file
-! OPEN(102,file=pathname(1:lenpath)//file_path(1:lenfname)//"/pro.pqr")
-! OPEN(102, file=pathname, status='old', action='read', iostat=err)
-! OPEN(102, file=pathname)
-
 ! Check if file is empty
 OPEN(102, FILE = trim(pathname), STATUS='OLD', ACTION='READ', IOSTAT=err)
-! IF (err /= 0) THEN
-!     PRINT *, "Error opening file: ", pathname
-!     STOP
-! END IF
-
-! READ(102, '(A)', IOSTAT=err) lineString
-! IF (err /= 0 .OR. LEN_TRIM(lineString) == 0) THEN
-!     PRINT *, "File is empty or cannot be read: ", pathname
-!     CLOSE(102)
-!     STOP
-! END IF
 
 numpars = 0
 DO 
@@ -103,24 +76,8 @@ END IF
 
 x=0.d0; y=0.d0; z=0.d0; q=0.d0
 
-! Read in atomic position and charges information
-! OPEN(102,file=pathname(1:lenpath)//file_path(1:lenfname)//"/pro.pqr")
-! OPEN(102, file=pathname, status='old', action='read', iostat=err)
-! OPEN(102, file=pathname)
-
 ! Check if file is empty
 OPEN(102, FILE = trim(pathname), STATUS='OLD', ACTION='READ', IOSTAT=err)
-! IF (err /= 0) THEN
-!     PRINT *, "Error opening file: ", pathname
-!     STOP
-! END IF
-
-! READ(102, '(A)', IOSTAT=err) lineString
-! IF (err /= 0 .OR. LEN_TRIM(lineString) == 0) THEN
-!     PRINT *, "File is empty or cannot be read: ", pathname
-!     CLOSE(102)
-!     STOP
-! END IF
 
 i = 0
 DO 
@@ -156,7 +113,7 @@ Call CREATE_TREE(troot,1,numpars,x,y,z,q,xyzminmax,level,numpars,ef_p,ef_L)
 PRINT *,'number of moments calculated: ',nMoMs
 
 ! output features
-OPEN(104,file='efeatrue.txt')
+OPEN(104,file='efeature.txt')
 Do i=1,ef_Nf 
     WRITE(104,*,IOSTAT = MEOF) features(i)
 END DO
