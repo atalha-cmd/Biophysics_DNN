@@ -234,7 +234,7 @@ def model(p, L, k):
                        loss='mean_squared_error',       
                        metrics=['mse', 'mape']) 
 
-    y_pred_scaled = model_merged.predict([X_test_centered, X_test_ef_scaled])
+    y_pred_scaled = best_model.predict([X_test_centered, X_test_ef_scaled])
     y_pred_inv = scaler_y_fold.inverse_transform(y_pred_scaled)
     y_test = np.array(y_test)
 
