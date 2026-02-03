@@ -5,7 +5,6 @@ import sys
 
 def get_features(p, L):    
 
-    # Read data from the CSV file into a DataFrame
 
     csv_filename = "comp_17k_list.txt"
     # csv_filename = "comp_test_protein.txt"
@@ -47,7 +46,6 @@ def get_features(p, L):
     X_electrostatic_df.insert(0, 'PDB_IDs', comps['PDB_IDs'])
     print("Feature matrix shape:", X_electrostatic_df.shape)  
     
-    # Save to CSV
     os.makedirs('X', exist_ok=True)
     X_electrostatic_df.to_csv('X/X_electrostatic_p' + str(p) + '_L' + str(L) + '.csv')
     print("Saved feature file successfully!")

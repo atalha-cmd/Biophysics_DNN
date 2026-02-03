@@ -52,7 +52,6 @@ def model(p, L, k):
     print("Example rows:")
     print(merged[['PDB_IDs', 'CE']].head())
 
-    # ----- Now split into X and y -----
     X = merged.drop(columns=['PDB_IDs', 'CE']).to_numpy(dtype=np.float32)
     y = merged['CE'].to_numpy(dtype=np.float32)
 
@@ -83,7 +82,6 @@ def model(p, L, k):
         print(y_val.shape)
 
         # --- Scale fold data ---
-
         scaler_X_fold = StandardScaler()
         X_train_fold_scaled = scaler_X_fold.fit_transform(X_train_fold)
         X_val_scaled = scaler_X_fold.transform(X_val)
@@ -134,7 +132,6 @@ def model(p, L, k):
         y_val_pred_scaled = model.predict(X_val_scaled)
         y_val_pred = scaler_y_fold.inverse_transform(y_val_pred_scaled)
 
-        # retain unscaled y for metrics
         y_true.append(y_val)
         y_pred.append(y_val_pred)
 
@@ -154,7 +151,6 @@ def model(p, L, k):
             best_mse = mse_scaled
             base_name = f"best_model_p{p}_L{L}_fold_{counter}"
 
-            # Save the model
             os.makedirs("models", exist_ok=True)
             model_filename = os.path.join("models", f"{base_name}.keras")
             model.save(model_filename)
@@ -206,11 +202,11 @@ def plot_mean_loss(histories, p, L):
     mean_train_loss = np.mean([h.history['loss'] for h in histories], axis=0)
     mean_val_loss = np.mean([h.history['val_loss'] for h in histories], axis=0)
 
-    plt.figure(figsize=(9,6))
+    plt.figure(figsize=(8,5))
     plt.plot(mean_train_loss, label='Mean Training Loss')
     plt.plot(mean_val_loss, label='Mean Validation Loss')
-    plt.xlabel('Epochs', fontsize = 20)
-    plt.ylabel('Loss', fontsize = 20)
+    plt.xlabel('Epochs', fontsize = 22)
+    plt.ylabel('Loss', fontsize = 22)
     plt.legend(fontsize=18)  
     plt.xticks(fontsize=14)  
     plt.yticks(fontsize=14) 
@@ -220,12 +216,12 @@ def plot_mean_loss(histories, p, L):
 def plot_scatter(y_true, y_pred, p, L):
     y_true = np.array(y_true)
     y_pred = np.array(y_pred) 
-    plt.figure(figsize=(9,6))
+    plt.figure(figsize=(8,5))
     plt.scatter(y_true, y_pred, marker='o', facecolors='none', edgecolors='b')
     lo = min(y_true.min(), y_pred.min()); hi = max(y_true.max(), y_pred.max())
     plt.plot([lo, hi], [lo, hi], color='red')
-    plt.xlabel('Reference Values',fontsize=20)
-    plt.ylabel('Predicted Values',fontsize = 20)
+    plt.xlabel('Reference Values',fontsize=22)
+    plt.ylabel('Predicted Values',fontsize = 22)
     plt.xticks(fontsize=14)  
     plt.yticks(fontsize=14)
     plt.tight_layout()
@@ -242,7 +238,6 @@ if __name__ == "__main__":
     plot_mean_loss(histories, p, L)
     plot_scatter(y_true, y_pred, p, L)
 
-    #  Save output data 
     os.makedirs("outputs", exist_ok=True)  
     pd.DataFrame(y_true).to_csv(f'outputs/y_true_electro_p{p}_L{L}.csv', index=False)
     pd.DataFrame(y_pred).to_csv(f'outputs/y_pred_electro_p{p}_L{L}.csv', index=False)

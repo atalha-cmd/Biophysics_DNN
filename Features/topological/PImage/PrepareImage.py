@@ -3,8 +3,8 @@ def PrepareImage(pro_PH_filepath, pro_hydro_PH_filepath, npy_filepath):
     import gudhi.representations as gr  
 
     rs   = 0.25
-    b_thr = 15
-    p_thr = 15
+    b_thr = 12.5
+    p_thr = 12.5
     d_thr = b_thr + p_thr
     small = 1e-4
     nx = int(np.ceil(b_thr / rs))
@@ -30,7 +30,6 @@ def PrepareImage(pro_PH_filepath, pro_hydro_PH_filepath, npy_filepath):
                     if p >= small and b <= b_thr and p <= p_thr and d <= d_thr:
                         out[dim].append([b, d])
 
-        # convert lists to arrays
         return {k: np.array(v, float) for k, v in out.items()}
 
     hyd_bd = load_bd(ProPHHydroFile)  # (birth, death) hydrophobic
@@ -68,7 +67,7 @@ def PrepareImage(pro_PH_filepath, pro_hydro_PH_filepath, npy_filepath):
 
     def weight_exp(bp):
         b, p = float(bp[0]), float(bp[1])
-        return np.exp(max(p, 0.0))  # exp(p)
+        return np.exp(max(p, 0.0)) 
 
     def weight_inv(bp):
         b, p = float(bp[0]), float(bp[1])
@@ -95,17 +94,14 @@ def PrepareImage(pro_PH_filepath, pro_hydro_PH_filepath, npy_filepath):
 
     feature = np.stack([hydro_h1, hydro_h2, gen_h1, gen_h2], axis=-1)
 
-    # ---- Save persistence image ----
     with open(OutFile, "wb") as outfile:
         np.save(outfile, feature)
 
-    # --------
     diagrams = {
-        "hyd_bd": hyd_bd,   # (birth, death) hydrophobic H1/H2
-        "gen_bd": gen_bd,   # (birth, death) general H1/H2
-        "hyd_bp": hyd_bp,   # (birth, persistence) hydrophobic H1/H2
-        "gen_bp": gen_bp    # (birth, persistence) general H1/H2
+        "hyd_bd": hyd_bd,   
+        "gen_bd": gen_bd,   
+        "hyd_bp": hyd_bp,   
+        "gen_bp": gen_bp    
     }
 
-    # Return both PI and PD info
     return feature, diagrams
